@@ -1,4 +1,4 @@
-const myNumber = "94729698328"; // ඔයාගේ WhatsApp Number එක මෙතනට දාන්න (94 සමඟ)
+const myNumber = "94729698328"; // Update this with your WhatsApp/Call number
 
 async function fetchDishes() {
     const container = document.getElementById('dish-container');
@@ -24,16 +24,28 @@ async function fetchDishes() {
 
                 const titleMatch = text.match(/title: (.*)/);
                 const imageMatch = text.match(/image: (.*)/);
+                const videoMatch = text.match(/video: (.*)/);
+                
                 const title = titleMatch ? titleMatch[1].replace(/"/g, "").trim() : "Untitled";
                 const image = imageMatch ? imageMatch[1].trim() : "";
+                const videoLink = videoMatch ? videoMatch[1].replace(/"/g, "").trim() : "";
                 const description = text.split('---').pop().trim();
+
+                let mediaHTML = `<img src="${image}" alt="${title}" onerror="this.src='https://via.placeholder.com/400x250?text=No+Image'">`;
+                
+                if (videoLink && videoLink !== "") {
+                    const embedUrl = getEmbedUrl(videoLink);
+                    if(embedUrl) {
+                        mediaHTML = `<iframe src="${embedUrl}" allowfullscreen></iframe>`;
+                    }
+                }
 
                 const dishCard = `
                     <div class="dish-card">
-                        <img src="${image}" alt="${title}" onerror="this.src='https://via.placeholder.com/400x250?text=No+Image'">
+                        <div class="media-container">${mediaHTML}</div>
                         <div class="dish-content">
                             <h2>${title}</h2>
-                            <p>${description.substring(0, 100)}...</p>
+                            <p>${description.substring(0, 110)}...</p>
                             <button class="order-btn" onclick="openContact('${title}')">Order Now</button>
                         </div>
                     </div>
@@ -42,8 +54,23 @@ async function fetchDishes() {
             }
         }
     } catch (error) {
-        container.innerHTML = "<p class='loading'>Error loading dishes.</p>";
+        container.innerHTML = "<p class='loading'>Error loading dishes from GitHub.</p>";
     }
+}
+
+// Function to convert YouTube/Vimeo links to embed links
+function getEmbedUrl(url) {
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length == 11) ? `https://www.youtube.com/embed/${match[2]}` : null;
+    }
+    if (url.includes('vimeo.com')) {
+        const regExp = /vimeo.com\/(\d+)/;
+        const match = url.match(regExp);
+        return match ? `https://player.vimeo.com/video/${match[1]}` : null;
+    }
+    return null;
 }
 
 function openContact(dishName) {
@@ -62,7 +89,6 @@ function closeModal() {
     document.getElementById('contact-modal').style.display = "none";
 }
 
-// Close modal if clicked outside
 window.onclick = function(event) {
     const modal = document.getElementById('contact-modal');
     if (event.target == modal) {
