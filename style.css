@@ -14,7 +14,6 @@ header {
     background-position: center;
 }
 
-/* Logo Styling */
 .logo-container {
     display: flex;
     flex-direction: column;
@@ -69,10 +68,18 @@ header p {
     box-shadow: 0 10px 30px rgba(255, 204, 0, 0.15);
 }
 
-.dish-card img {
+.media-container {
     width: 100%;
     height: 250px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.media-container img, .media-container iframe {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    border: none;
 }
 
 .dish-content {
@@ -141,13 +148,8 @@ header p {
     transform: scale(1.15);
 }
 
-.call-float {
-    background: linear-gradient(45deg, #ffcc00, #b8860b);
-}
-
-.wa-float {
-    background-color: #25d366;
-}
+.call-float { background: linear-gradient(45deg, #ffcc00, #b8860b); }
+.wa-float { background-color: #25d366; }
 
 /* Modal Styles */
 .modal {
