@@ -7,17 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-    <div id="contact-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2 id="modal-title">Contact Us</h2>
-        <p>Order your favorite dish or ask any questions!</p>
-        <div class="contact-info">
-            <p>📞 <strong>Phone:</strong> +94 72 969 8328</p> <p>📍 <strong>Location:</strong> Kelaniya, Sri Lanka</p>
-        </div>
-        <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-btn">Message on WhatsApp</a>
-    </div>
-</div>
 <body>
     <header>
         <div class="logo">LOVE OF DISH</div>
@@ -25,8 +14,22 @@
     </header>
 
     <main id="dish-container" class="container">
-        <p class="loading">Please login to Admin and add your first dish to see it here.</p>
+        <p class="loading">Loading our special dishes...</p>
     </main>
+
+    <!-- Contact Pop-up Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Contact Us</h2>
+            <p>Order your favorite dish or ask any questions!</p>
+            <div class="contact-info">
+                <p>📞 <strong>Phone:</strong> +94 7X XXX XXXX</p>
+                <p>📍 <strong>Location:</strong> Kelaniya, Sri Lanka</p>
+            </div>
+            <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-btn">Message on WhatsApp</a>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Love of Dish. All Rights Reserved.</p>
