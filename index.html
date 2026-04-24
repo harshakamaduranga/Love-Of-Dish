@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love of Dish | Premium Recipes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">LOVE OF DISH</div>
+        <p>Experience the art of taste</p>
+    </header>
+
+    <main id="dish-container" class="container">
+        <p class="loading">Please login to Admin and add your first dish to see it here.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Love of Dish. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>

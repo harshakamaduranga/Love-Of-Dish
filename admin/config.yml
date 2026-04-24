@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "dishes"
+    label: "Dishes"
+    folder: "content/dishes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Dish Name", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Dish Image", name: "image", widget: "image"}
+      - {label: "Recipe Video", name: "video", widget: "file", required: false}
+      - {label: "Description", name: "body", widget: "markdown"}
