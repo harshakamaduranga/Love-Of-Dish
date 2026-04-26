@@ -2,7 +2,7 @@ backend:
   name: github
   repo: harshakamaduranga/Love-Of-Dish
   branch: main
-  base_url: https://love-of-dish-btdd.vercel.app/auth # <--- මේක හරියටම මේ විදිහට දාන්න
+  base_url: https://love-of-dish-btdd.vercel.app
   auth_endpoint: /auth
 
 media_folder: "images"
