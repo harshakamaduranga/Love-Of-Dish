@@ -2,5 +2,5 @@ backend:
   name: github
   repo: harshakamaduranga/Love-Of-Dish
   branch: main
-  base_url: https://love-of-dish-auth.vercel.app # ඔයාගේ Vercel URL එක මෙතනට
+  base_url: https://loveofdish.vercel.app/ # අලුත් Proxy URL එක මෙතනට
   auth_endpoint: /auth
