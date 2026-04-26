@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
+  backend:
+  name: github
+  repo: harshakamaduranga/Love-Of-Dish
   branch: main
+  base_url: https://love-of-dish-auth.vercel.app # ඔයාගේ Vercel URL එක මෙතනට
+  auth_endpoint: /auth
 
 media_folder: "images"
 public_folder: "/images"
