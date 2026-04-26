@@ -2,7 +2,7 @@ backend:
   name: github
   repo: harshakamaduranga/Love-Of-Dish
   branch: main
-  base_url: https://love-of-dish-auth-proxy-4drme7ut8-harshakamadurangas-projects.vercel.app/
+  base_url: https://love-of-dish-auth-proxy.vercel.app
   auth_endpoint: /auth
 
 media_folder: "images"
