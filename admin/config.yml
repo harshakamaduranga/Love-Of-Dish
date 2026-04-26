@@ -2,8 +2,7 @@ backend:
   name: github
   repo: harshakamaduranga/Love-Of-Dish
   branch: main
-  # මෙතනට ඔයා අන්තිමට සාර්ථකව හදාගත්ත Vercel URL එක දාන්න
-  base_url: https://love-of-dish.vercel.app/
+  base_url: https://loveofdish.vercel.app
   auth_endpoint: /auth
 
 media_folder: "images"
